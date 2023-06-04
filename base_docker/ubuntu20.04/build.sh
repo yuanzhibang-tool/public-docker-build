@@ -1,9 +1,9 @@
-REPO_NAME='yuanzhibang/ubuntu20.04'
-DOCKER_FILE='Dockerfile'
-BUILD_SRC='.'
-ARCH='linux/amd64,linux/arm64'
+repo='yuanzhibang/ubuntu20.04'
+dockerFile='Dockerfile'
+buildSrc='.'
+arch='linux/amd64,linux/arm64'
+time=`date '+%Y%m%d%H%M'`
 
-
-docker buildx build --platform $ARCH -t $REPO_NAME:default -f $DOCKER_FILE $BUILD_SRC --push
-docker buildx build --platform $ARCH -t $REPO_NAME:latest -f $DOCKER_FILE $BUILD_SRC --push
-docker buildx build --platform $ARCH -t $REPO_NAME:$time -f $DOCKER_FILE $BUILD_SRC --push
+docker buildx build --platform $arch -t $repo:default -f $dockerFile $buildSrc --push
+docker buildx build --platform $arch -t $repo:latest -f $dockerFile $buildSrc --push
+docker buildx build --platform $arch -t $repo:$time -f $dockerFile $buildSrc --push
