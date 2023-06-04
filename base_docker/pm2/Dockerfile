@@ -6,9 +6,12 @@ RUN echo 'start build'
 RUN LC_ALL=C.UTF-8
 #配置xdebug
 RUN apt update
+RUN curl -sL https://deb.nodesource.com/setup_18.x | bash -
+
+RUN apt update
 RUN apt upgrade -y
-RUN apt install -y php composer nodejs npm python3 python3-pip
-RUN npm config set registry https://registry.npmmirror.com
+
+RUN apt install -y php nodejs composer npm python3 python3-pip
 RUN npm install -g npm
 RUN npm install -g pm2
 RUN pm2 startup
