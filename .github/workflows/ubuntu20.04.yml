@@ -4,7 +4,7 @@ on:
     branches: ['ubuntu20.04']
   workflow_dispatch:
 jobs:
-  build-linux:
+  build-image:
     runs-on: ubuntu-latest
     env:
       DOCKER_USER: ${{ secrets.DOCKER_USER }}
@@ -20,4 +20,4 @@ jobs:
       - name: start build
         run: |
             docker login --username=$DOCKER_USER --password=$DOCKER_PASS
-            cd base_docker/ubuntu20.04 && ./bulid.sh
+            cd base_docker/ubuntu20.04 && ./build.sh
