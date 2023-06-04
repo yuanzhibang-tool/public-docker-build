@@ -12,7 +12,10 @@ RUN apt update
 RUN apt upgrade -y
 RUN apt install -y nodejs
 
-RUN apt install -y php composer npm python3 python3-pip
+RUN apt install -y php composer python3 python3-pip
+
+RUN npm config set registry https://registry.npmmirror.com
+
 RUN npm install -g npm
 RUN npm install -g pm2
 RUN pm2 startup
